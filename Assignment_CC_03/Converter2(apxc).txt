@@ -1,0 +1,16 @@
+public class Converter2 {
+    public integer a{get;set;}
+    public integer b{get;set;}
+    public integer res1{get;set;}
+    public double res2{get;set;}
+    public double res3{get;set;}
+    public void rup(){
+        res1=a/82;
+    }
+    public void dol(){
+        res2=b*82;
+    }
+    public void ero(){
+        res3=a*0.011;
+    }
+}

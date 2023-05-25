@@ -1,0 +1,19 @@
+<apex:page controller="Converter2">
+    <apex:sectionHeader title="Converter" subtitle="Converter"/>
+    <apex:form>
+    	<apex:pageBlock title="Converter">
+        	<apex:pageBlockButtons location="bottom">
+            	<apex:commandButton action="{!rup}" value="Dolar" reRender="rd1"/>
+                <apex:commandButton action="{!dol}" value="Rupees" reRender="rd2"/>
+                <apex:commandButton action="{!ero}" value="Euro" reRender="rd3"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection>
+            	<apex:inputText value="{!a}" label="Enter Ruppes "/>
+                <apex:inputText value="{!b}" label="Enter Dollar "/>
+                <apex:outputText value="{!res1}" label="Dollar -" id="rd1"></apex:outputText>
+                <apex:outputText value="{!res2}" label="Rupees -" id="rd2"></apex:outputText>
+                <apex:outputText value="{!res3}" label="Euro -" id="rd3"></apex:outputText>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,22 +1,40 @@
-public class Demo2 {
+public class Demo1 {
     public integer a{get;set;}
     public integer b{get;set;}
     public integer theta{get;set;}
-    public integer res{get;set;}
+    public integer result{get;set;}
     public double x{get;set;}
-    public void add(){
-        res=a+b;
+    public double sq{get;set;}
+    public double lg{get;set;}
+    public integer s{get;set;}
+    public void Add(){
+        result=a+b;
     }
-    public void sub(){
-        res=a-b;
+    public void Sub(){
+        result=a-b;
+    }
+    public void Div(){
+        result=a/b;
+    }
+    public void Mul(){
+        result=a*b;
     }
     public void sine(){
         x=math.sin(theta*(3.14/180));
     }
-    public void cosine(){
+    public void Cosine(){
         x=math.cos(theta*(3.14/180));
     }
-    public void tane(){
+    public void Tane(){
         x=math.tan(theta*(3.14/180));
+    }
+    public void Root(){
+        sq=math.sqrt(a);
+    }
+    public void Log(){
+        lg=math.log(b);
+    }
+    public void square(){
+        s=a*a;
     }
 }

@@ -1,118 +1,97 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-// int main()
-// {
-//     cout << "WELCOME to Company" << endl;
-//     string name, gender, domain;
-//     cout << "lets begin employee evaluation" << endl;
-//     cout << "enter employee name" << endl;
-//     cin >> name;
-//     cout << "enter employee gender(M/F)" << endl;
-//     cin >> gender;
-//     cout << "enter employee domain" << endl;
-//     cin >> domain;
-//     int n1, n2, n3, n4, n5, n6, n7, n8, n9;
-//     cout << "how many hours he worked" << endl;
-//     cin >> n1;
-//     cout << "how many presentation he worked" << endl;
-//     cin >> n2;
-//     cout << "how many employees he worked" << endl;
-//     cin >> n3;
-//     cout << "how many salary he worked" << endl;
-//     cin >> n4;
-//     cout << "how many age" << endl;
-//     cin >> n5;
-//     cout << "how many year experience" << endl;
-//     cin >> n6;
-//     cout << "how many hours he rating" << endl;
-//     cin >> n7;
-
-//     int rating = 0;
-//     if (n1 >= 8)
-//     {
-//         rating++;
-//     }
-//     if (n2 > 20)
-//     {
-//         rating++;
-//     }
-//     if (n3 > 3)
-//     {
-//         rating++;
-//     }
-//     if (n5 > 40)
-//     {
-//         rating += 2;
-//     }
-//     if (n5 > 30)
-//     {
-//         rating++;
-//     }
-//     if (n4 > 100000)
-//     {
-//         rating++;
-//     }
-//     if (n6 > 5)
-//     {
-//         rating++;
-//     }
-//     if (n7 > 5)
-//     {
-//         rating++;
-//     }
-//     cout << "the total score of employee is" << rating << endl;
-//     cout << "lets evaluate him/her" << endl;
-//     if (gender == "male")
-//     {
-//         if (domain == "web")
-//         {
-//             if (rating > 5)
-//             {
-//                 cout << "congrating on salary incrementation now ur salary is" << n4 * 1.1 << endl;
-//             }
-//             else if (rating < 5 and rating > 3)
-//             {
-//                 cout << "no salary increment" << endl;
-//             }
-//             else
-//             {
-//                 cout << "you need to work hard" << endl;
-//             }
-//         }
-
-//     }
-// }
-
-#include <bits/stdc++.h>
-#include <iostream>
-typedef long long ll;
+// Chatbot
+#include<bits/stdc++.h>
 using namespace std;
-int main()
-{
-    cout << "\nWelcome to Dieases Prediction - ";
-    cout << "\n1.What is your Name - ";
-    string name;
-    getline(cin, name);
-    string symtoms[] = {"Fever", "chills", "Cough", "Shortness of breath", "Fatigue", "Muscle or body aches", "Headache", "Sore throat", "Nausea", "runny nose"};
-    vector<int> humansym(11, 0);
-    cout << "\nAny Symtoms - " << endl;
-    while (1)
-    {
-        cout << endl;
-        for (int i = 0; i < 10; i++)
-        {
-            cout << i + 1 << "." << symtoms[i] << endl;
-        }
-        int n;
-        cout << "\nDo you have any above Symtoms(-1 to exit) - ";
-        cin >> n;
-        if (n == -1)
-            break;
-        humansym[n] = 1;
-    }
-    cout << "3.Have you travel in this duration - (y/n)";
-    char ch;
-    cin >> ch;
 
-    return 0;
+vector<string> QUESTIONS = {
+	"Do you have cough?",
+	"Do you have a sore throat?",
+	"Do you have a fever?",
+	"Are you noticing any unexplained excessive sweating?",
+	"Do you have an itchy throat?",
+	"Do you have a runny nose?",
+	"Do you have a stuffy nose?",
+	"Do you have a headache?",
+	"Do you feel tired without actually exhausting yourself?"
+};
+
+
+map<string, int> threshold;
+
+
+
+
+void expertSystem() {
+
+	int score = 0;
+
+	for (auto &question : QUESTIONS) {
+		cout << question;
+		cout << " (Y/N) " << endl;
+		char ans;
+		cin >> ans;
+		int ip;
+
+		if (ans == 'Y') {
+			cout << "On a scale of 1-10 how bad is it ?" << endl;
+			cin >> ip;
+			while ( ip < 1 || ip > 10) {
+				cout << "Enter a valid input !" << endl;
+				cin >> ip;
+
+			}
+			score += int(ip);
+		}
+	}
+
+	cout << endl;
+	cout << endl;
+
+	if (score >= threshold["Extreme"]) {
+		cout << "You are showing symptoms of having EXTREME COVID-19" << endl;
+		cout << "Please call +91 8112233445 immediately to immediate assistance" << endl;
+		cout << "Based on your symptoms, You will need Immediate Hospitalization" << endl;
+	}
+	else if (score >= threshold["Severe"]) {
+		cout << ("Based on your answers You are showing Symptoms of SEVERE COVID-19") << endl;
+		cout << ("You are advised to contact a COVID-19 Specialist ASAP") << endl;
+		cout << ("You are prescribed with Favipriavir, Dolo 650 / Crocin 500, Paracetamol, Brufane") << endl;
+		cout << "Also coduct a COVID-19 Lab Test ASAP at your own convenience as this might be a false Positive" << endl;
+		cout << endl;
+		cout << endl;
+		cout << ("Lab Testing: https://www.metropolisindia.com/parameter/pune/covid-19-rt-pcr-test") << endl;
+	}
+	else if (score >= threshold["Mild"]) {
+		cout<<("Based on your answers You are showing Symptoms of VERY MILD COVID-19") << endl;
+		cout<<("Please Isolate yourself Immediately on a precautionary basis") << endl;
+		cout<<("As this has a possibility of being a false positive , please consider testing yourself") << endl;
+		cout<<("At home testing using Self-Testing kits is recommended , but you can get Lab Tests as well") << endl;
+		cout << endl;
+		cout << endl;
+		cout<<("Self testing : https://www.flipkart.com/mylab-coviself-covid-19-rapid-antigen-test-kit/p/itm4d34ea09cad97") << endl;
+		cout<<("Lab Testing  : https://www.metropolisindia.com/parameter/pune/covid-19-rt-pcr-test") << endl;
+	}
+	else {
+		cout<<("You are Showing NO Symptoms of COVID-19") << endl;
+		cout<<("This might be a false negative, If you feel unsure , please get Tested") << endl;
+		cout<<("As this has a possibility of being a false negative , please consider testing yourself") << endl;
+		cout<<("At home testing using Self-Testing kits is recommended") << endl;
+		cout << endl;
+		cout << endl;
+		cout<<("Self testing : https://www.flipkart.com/mylab-coviself-covid-19-rapid-antigen-test-kit/p/itm4d34ea09cad97") << endl;
+	}
+	cout << endl;
+	cout << endl;
+	cout << "For any further queries visit : https://www.aarogyasetu.gov.in/" << endl;
+	cout << endl;
+	cout << endl;
+}
+
+int main() {
+	threshold["Mild"] = 30;
+	threshold["Severe"] = 50;
+	threshold["Extreme"] = 75;
+	cout << "\n\n\t\tWelcome To The COVID-19 EXPERT SYSTEM\n" << endl;
+	cout << "\tNote : Please answer the following questions very honestly\n\n" << endl;
+	expertSystem();
+	return 0;
 }

@@ -28,11 +28,11 @@ signed main()
     q.push({0, src});
     while (!q.empty())
     {
-        auto &it = q.top();
+        auto it = q.top();
         q.pop();
         int wt = it.first;
         int node = it.second;
-        for (auto &i : adj[node])
+        for (auto i : adj[node])
         {
             int adjwt = i.first;
             int adjedge = i.second;

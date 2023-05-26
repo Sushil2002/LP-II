@@ -1,20 +1,28 @@
 <apex:page controller="Demo2">
-    <apex:sectionHeader title="Cal" subtitle="Calcii"/>
+    <apex:sectionHeader title="Welcome to" subtitle="Scientific Calculator"/>
     <apex:form >
     	<apex:pageBlock title="Calculator">
         	<apex:pageBlockButtons location="bottom">
-            	<apex:commandButton action="{!add}" value="Addition" reRender="re"/>
-                <apex:commandButton action="{!sub}" value="Subtraction" reRender="re"/>
-                <apex:commandButton action="{!sine}" value="Sin" reRender="re1"/>
-                <apex:commandButton action="{!cosine}" value="Cos" reRender="re1"/>
-                <apex:commandButton action="{!tane}" value="Tan" reRender="re1"/>
+            	<apex:commandButton action="{!Add}" value="Addition" reRender="rd"/>
+                <apex:commandButton action="{!Sub}" value="Substraction" reRender="rd"/>
+                <apex:commandButton action="{!Div}" value="Division" reRender="rd"/>
+                <apex:commandButton action="{!Mul}" value="Multiplication" reRender="rd"/>
+                <apex:commandButton action="{!Sine}" value="Sin" reRender="rd1"/>
+                <apex:commandButton action="{!Cosine}" value="Cos" reRender="rd1"/>
+                <apex:commandButton action="{!Tane}" value="Tan" reRender="rd1"/>
+     			<apex:commandButton action="{!Root}" value="Root" reRender="rd2"/>
+                <apex:commandButton action="{!Log}" value="Log" reRender="rd3"/>
+                <apex:commandButton action="{!square}" value="Sqaure" reRender="rd4"/>
             </apex:pageBlockButtons>
             <apex:pageBlockSection >
-            	<apex:inputText value="{!a}" label="Number1"/>
-                <apex:inputText value="{!b}" label="Number2"/>
-                <apex:outputText label="Result" value="{!res}" id="re"></apex:outputText>
-                <apex:inputText value="{!theta}" label="Enter Theta(in Degree)"/>
-                <apex:outputText label="Trigno Value" value="{!x}" id="re1"></apex:outputText>
+            	<apex:inputText value="{!a}" label="First Number "/>
+                <apex:inputText value="{!b}" label="Second Number"/>
+                <apex:outputText value="{!result}" label="Result" id="rd"></apex:outputText>
+                <apex:outputText value="{!sq}" label="Root" id="rd2"></apex:outputText>
+                <apex:outputText value="{!lg}" label="Log" id="rd3"></apex:outputText>
+                <apex:outputText value="{!s}" label="Sqaure" id="rd4"></apex:outputText>
+                <apex:inputText value="{!theta}" label="Theta(In Degree)"/>
+                <apex:outputText value="{!x}" label="Value is " id="rd1"></apex:outputText>
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>
